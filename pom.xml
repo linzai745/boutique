@@ -20,5 +20,6 @@
         <module>boutique-member</module>
         <module>boutique-order</module>
         <module>boutique-ware</module>
+        <module>boutique-common</module>
     </modules>
 </project>
