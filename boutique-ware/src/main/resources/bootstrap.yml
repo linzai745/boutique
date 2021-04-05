@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: boutique-ware
+  cloud:
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848
+        file-extension: yaml
+        namespace: ecd0406c-aed1-4006-b6f2-fb9c29a40c30

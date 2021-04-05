@@ -1,0 +1,18 @@
+#spring:
+#  datasource:
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://172.17.5.3:3306/boutique_pms?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
+#    username: root
+#    password: 123456
+#  application:
+#    name: boutique-ware
+#  cloud:
+#    nacos:
+#      discovery:
+#        server-addr: 127.0.0.1:8848
+#
+#server:
+#  port: 9200
+
+
+
