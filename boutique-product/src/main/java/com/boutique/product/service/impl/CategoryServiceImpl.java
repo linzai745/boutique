@@ -33,19 +33,15 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryDao, CategoryEntity
     @Override
     public List<CategoryEntity> listWithTree() {
         // 查询出所有的分类
-        List<CategoryEntity> entities = baseMapper.selectList(null);
-
+        List<CategoryEntity> categoryList = baseMapper.selectList(null);
         //构造树结构列表
         List<CategoryEntity> tree = new LinkedList<>();
-        Iterator<CategoryEntity> iterator = entities.iterator();
 
-        while (iterator.hasNext()) {
-            CategoryEntity entity = iterator.next();
-            Long parentCid = entity.getParentCid();
+        for (CategoryEntity category : categoryList) {
+            Long parentCid = category.getParentCid();
             if (parentCid != null && parentCid == 0) {
-                iterator.remove();
-                findChildren(entity, entities);
-                tree.add(entity);
+                findChildren(category, categoryList);
+                tree.add(category);
             }
         }
 
