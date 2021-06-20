@@ -54,6 +54,7 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryDao, CategoryEntity
         for (CategoryEntity entity : entities) {
             if (root.getCatId().equals(entity.getParentCid())) {
                 findChildren(entity, entities);
+                entity.setIsLeaf(entity.getChildren().size() == 0);
                 result.add(entity);
             }
         }
