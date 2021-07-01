@@ -1,0 +1,18 @@
+server:
+  port: 11000
+spring:
+  application:
+    name: boutique-gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+    gateway:
+      routes:
+        - id: boutique-product
+          uri: http://127.0.0.1:9100
+          predicates:
+            - Path=/product/**
+#          filters:
+#            - RewritePath
+
