@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: boutique-third-party
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+alibaba:
+  cloud:
+    access-key: LTAI5t6EobKs9UkhBVJj927d
+    secret-key: ne1oo5CkQMx9bveAHJNUzFLQgFsreH
+    oss:
+      endpoint: oss-cn-shenzhen.aliyuncs.com
+server:
+  port: 30000
+

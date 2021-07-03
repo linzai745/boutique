@@ -22,5 +22,6 @@
         <module>boutique-ware</module>
         <module>boutique-common</module>
         <module>boutique-gateway</module>
+        <module>boutique-third-party</module>
     </modules>
 </project>
