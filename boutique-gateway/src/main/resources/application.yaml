@@ -9,10 +9,17 @@ spring:
         server-addr: 127.0.0.1:8848
     gateway:
       routes:
-        - id: boutique-product
-          uri: http://127.0.0.1:9100
+        - id: product_route
+          uri: lb://boutique-product
           predicates:
-            - Path=/product/**
-#          filters:
-#            - RewritePath
+            - Path=/api/product/**
+          filters:
+            - RewritePath=/api/(?<segment>.*),/$\{segment}
+
+        - id: third_party_route
+          uri: lb://boutique-third-party
+          predicates:
+            - Path=/api/thirdparty/**
+          filters:
+            - RewritePath=/api/(?<segment>.*),/$\{segment}
 
