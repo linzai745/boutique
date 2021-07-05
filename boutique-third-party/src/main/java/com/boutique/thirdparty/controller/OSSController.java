@@ -7,6 +7,7 @@ import com.aliyun.oss.model.PolicyConditions;
 import com.boutique.common.utils.R;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -29,7 +30,7 @@ public class OSSController {
     @Autowired
     private OSS ossClient;
 
-    @PostMapping("/aliyun/oss/signature")
+    @GetMapping("/aliyun/oss/signature")
     public R signature() {
         String bucket = "boutique-media"; // 请填写您的 bucketname 。
         String host = "https://" + bucket + "." + endpoint; // host的格式为 bucketname.endpoint
