@@ -3,6 +3,7 @@ package com.boutique.product.controller;
 import java.util.Arrays;
 import java.util.Map;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,6 +23,7 @@ import com.boutique.common.utils.R;
  */
 @RestController
 @RequestMapping("product/brand")
+@Slf4j
 public class BrandController {
     @Autowired
     private BrandService brandService;
@@ -77,4 +79,10 @@ public class BrandController {
         return R.ok();
     }
 
+    @PutMapping("/update/showStatus/{brandId}")
+    public R updateShowStatus(@PathVariable("brandId") Long brandId, @RequestBody Integer status) {
+        log.info("品牌ID: {}，状态： {}", brandId, status);
+        brandService.updateStatusById(brandId, status);
+        return R.ok();
+    }
 }

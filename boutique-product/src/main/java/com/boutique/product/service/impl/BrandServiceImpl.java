@@ -1,5 +1,6 @@
 package com.boutique.product.service.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.Map;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
@@ -16,6 +17,9 @@ import com.boutique.product.service.BrandService;
 @Service("brandService")
 public class BrandServiceImpl extends ServiceImpl<BrandDao, BrandEntity> implements BrandService {
 
+    @Autowired
+    private BrandDao brandDao;
+
     @Override
     public PageUtils queryPage(Map<String, Object> params) {
         IPage<BrandEntity> page = this.page(
@@ -26,4 +30,8 @@ public class BrandServiceImpl extends ServiceImpl<BrandDao, BrandEntity> impleme
         return new PageUtils(page);
     }
 
+    @Override
+    public void updateStatusById(Long brandId, Integer status) {
+        brandDao.updateStatusById(brandId, status);
+    }
 }

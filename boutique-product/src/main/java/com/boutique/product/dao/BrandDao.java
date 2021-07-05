@@ -13,5 +13,7 @@ import org.apache.ibatis.annotations.Mapper;
  */
 @Mapper
 public interface BrandDao extends BaseMapper<BrandEntity> {
-	
+
+    int updateStatusById(Long brandId, Integer status);
+
 }
