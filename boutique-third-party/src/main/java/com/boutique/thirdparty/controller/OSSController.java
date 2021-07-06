@@ -67,4 +67,12 @@ public class OSSController {
 
         return R.ok().put("data", respMap);
     }
+
+    @GetMapping("/aliyun/oss/host")
+    public R host() {
+        String bucket = "boutique-media";
+        String host = "https://" + bucket + "." + endpoint;
+
+        return R.ok().put("data", host);
+    }
 }
